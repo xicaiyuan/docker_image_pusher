@@ -1,3 +1,4 @@
 alpine
 python:alpine3.19
 nginx:alpine3.19
+centos:centos7.9.2009
