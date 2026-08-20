@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - build-wetype-voicebubble-20260820
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
