@@ -37,19 +37,19 @@ jobs:
         with:
           gradle-version: '8.10.2'
 
-      - name: Verify and unpack source bundle
+      - name: Verify source tree
         run: |
-          sha256sum WeTypeVoiceBubble_AndroidStudio_Project.zip
-          unzip -t WeTypeVoiceBubble_AndroidStudio_Project.zip
-          unzip -q WeTypeVoiceBubble_AndroidStudio_Project.zip
+          test -f wetype_voicebubble/settings.gradle
+          test -f wetype_voicebubble/app/src/main/AndroidManifest.xml
+          test -f wetype_voicebubble/app/src/main/java/com/wetype/voicebubble/BubbleAccessibilityService.java
 
       - name: Build debug APK
-        working-directory: WeTypeVoiceBubble
+        working-directory: wetype_voicebubble
         run: gradle :app:assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: WeTypeVoiceBubble-debug-apk
-          path: WeTypeVoiceBubble/app/build/outputs/apk/debug/app-debug.apk
+          path: wetype_voicebubble/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
