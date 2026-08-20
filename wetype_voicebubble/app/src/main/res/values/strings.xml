@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">微信语音悬浮球</string>
+    <string name="accessibility_desc">显示语音悬浮球，并检测微信输入法语音识别状态。不会读取或上传你的文字。</string>
+</resources>
